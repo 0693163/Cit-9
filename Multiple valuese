@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+)
+
+type person struct {
+	last string
+	age  int
+}
+
+func main() {
+	p1 := person{"Dominic", 20}
+	p2 := person{"Smith", 22}
+	p1.foo()
+	p2.foo()
+}
+
+func (p person) foo() {
+	fmt.Println("Hello from", p.last)
+}
