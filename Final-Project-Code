@@ -1,0 +1,46 @@
+package main
+
+import (
+	"net/http"
+	"io"
+)
+
+func main() {
+	http.HandleFunc("/", index)
+	http.HandleFunc("/foo", foo)
+	http.HandleFunc("/bar/", bar)
+	http.HandleFunc("/sunday", sunday)
+	http.HandleFunc("/monday", monday)
+	http.HandleFunc("/tuesday", tuesday)
+	http.HandleFunc("/wednesday", wednesday)
+	http.Handle("/favicon.ico", http.NotFoundHandler())
+	http.ListenAndServe(":8080", nil)
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Thursday - Champions are born in august")
+}
+
+func foo(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Friday - Pizza")
+}
+
+func bar(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Saturday - Cheetah")
+}
+
+func sunday(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Sunday - Lionking")
+}
+
+func monday(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Monday - Dreams")
+}
+
+func tuesday(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Tuesday - Basketball")
+}
+
+func wednesday(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Wednesday - LA")
+}
